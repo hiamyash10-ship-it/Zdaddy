@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fare tracker</title>
+<style>
+:root{--bg:#0f1115;--card:#171a21;--line:#262b36;--txt:#e6e9ef;--dim:#8a93a6;--up:#ff6b6b;--down:#4ade80;--acc:#7aa2ff}
+*{box-sizing:border-box}
+body{margin:0;padding:24px 16px 64px;background:var(--bg);color:var(--txt);font:15px/1.5 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:920px;margin:0 auto}
+h1{font-size:22px;margin:0 0 4px;letter-spacing:-.01em}
+.sub{color:var(--dim);font-size:13px;margin-bottom:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+.top{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;justify-content:space-between}
+.route{font-weight:600;letter-spacing:-.01em}
+.date{color:var(--dim);font-size:13px;font-weight:400;margin-left:6px}
+.price{font-size:22px;font-weight:650;font-variant-numeric:tabular-nums}
+.delta{font-size:13px;font-variant-numeric:tabular-nums}
+.down{color:var(--down)}.up{color:var(--up)}.flat{color:var(--dim)}
+.meta{color:var(--dim);font-size:13px;margin-top:6px}
+svg{display:block;width:100%;height:78px;margin-top:12px;overflow:visible}
+a{color:var(--acc);text-decoration:none;font-size:13px}
+a:hover{text-decoration:underline}
+.lo{color:var(--dim);font-size:12px;margin-top:8px;font-variant-numeric:tabular-nums}
+.empty{color:var(--dim);font-size:13px;padding:8px 0}
+</style></head><body><div class="wrap">
+<h1>Fare tracker</h1><div class="sub" id="sub"></div><div id="out"></div>
+</div><script>
+const D = {"currency":"INR","updated":"2026-08-22T19:57:43.640595+00:00","series":{"DEL-BKK|2027-01-16":{"url":"https://www.google.com/travel/flights?q=Flights%20from%20DEL%20to%20BKK%20on%202027-01-16%20one%20way","points":[{"t":"2026-08-22T19:56:31+00:00","min":16816,"best":{"price":16816,"airlines":["Air India"],"stops":0,"depart":"11:55","arrive":"17:55","duration_min":270,"route":"DEL \u2192 BKK"},"offers":[{"price":16816,"airlines":["Air India"],"stops":0,"depart":"11:55","arrive":"17:55","duration_min":270,"route":"DEL \u2192 BKK"},{"price":16816,"airlines":["Air India"],"stops":0,"depart":"14:40","arrive":"20:35","duration_min":265,"route":"DEL \u2192 BKK"},{"price":18391,"airlines":["Air India"],"stops":0,"depart":"01:20","arrive":"07:05","duration_min":255,"route":"DEL \u2192 BKK"},{"price":18697,"airlines":["THAI"],"stops":0,"depart":"00:20","arrive":"06:05","duration_min":255,"route":"DEL \u2192 BKK"},{"price":18697,"airlines":["THAI"],"stops":0,"depart":"16:05","arrive":"21:35","duration_min":240,"route":"DEL \u2192 BKK"},{"price":21433,"airlines":["THAI"],"stops":0,"depart":"11:00","arrive":"16:30","duration_min":240,"route":"DEL \u2192 BKK"}]}]},"DEL-BKK|2027-01-17":{"url":"https://www.google.com/travel/flights?q=Flights%20from%20DEL%20to%20BKK%20on%202027-01-17%20one%20way","points":[{"t":"2026-08-22T19:56:31+00:00","min":16816,"best":{"price":16816,"airlines":["Air India"],"stops":0,"depart":"14:40","arrive":"20:35","duration_min":265,"route":"DEL \u2192 BKK"},"offers":[{"price":16816,"airlines":["Air India"],"stops":0,"depart":"14:40","arrive":"20:35","duration_min":265,"route":"DEL \u2192 BKK"},{"price":18512,"airlines":["Air India"],"stops":0,"depart":"08:20","arrive":"14:10","duration_min":260,"route":"DEL \u2192 BKK"},{"price":18697,"airlines":["THAI"],"stops":0,"depart":"00:20","arrive":"06:05","duration_min":255,"route":"DEL \u2192 BKK"},{"price":18697,"airlines":["THAI"],"stops":0,"depart":"16:05","arrive":"21:35","duration_min":240,"route":"DEL \u2192 BKK"},{"price":21433,"airlines":["THAI"],"stops":0,"depart":"11:00","arrive":"16:30","duration_min":240,"route":"DEL \u2192 BKK"},{"price":22386,"airlines":["Air India"],"stops":0,"depart":"01:20","arrive":"07:05","duration_min":255,"route":"DEL \u2192 BKK"}]}]},"DEL-BKK|2027-01-18":{"url":"https://www.google.com/travel/flights?q=Flights%20from%20DEL%20to%20BKK%20on%202027-01-18%20one%20way","points":[{"t":"2026-08-22T19:56:31+00:00","min":16396,"best":{"price":16396,"airlines":["Air India"],"stops":0,"depart":"11:55","arrive":"17:55","duration_min":270,"route":"DEL \u2192 BKK"},"offers":[{"price":16396,"airlines":["Air India"],"stops":0,"depart":"11:55","arrive":"17:55","duration_min":270,"route":"DEL \u2192 BKK"},{"price":16396,"airlines":["Air India"],"stops":0,"depart":"14:40","arrive":"20:35","duration_min":265,"route":"DEL \u2192 BKK"},{"price":17971,"airlines":["Air India"],"stops":0,"depart":"01:20","arrive":"07:05","duration_min":255,"route":"DEL \u2192 BKK"},{"price":18697,"airlines":["THAI"],"stops":0,"depart":"00:20","arrive":"06:05","duration_min":255,"route":"DEL \u2192 BKK"},{"price":18697,"airlines":["THAI"],"stops":0,"depart":"11:00","arrive":"16:30","duration_min":240,"route":"DEL \u2192 BKK"},{"price":18697,"airlines":["THAI"],"stops":0,"depart":"16:05","arrive":"21:35","duration_min":240,"route":"DEL \u2192 BKK"}]}]},"DEL-DMK|2027-01-16":{"url":"https://www.google.com/travel/flights?q=Flights%20from%20DEL%20to%20DMK%20on%202027-01-16%20one%20way","points":[{"t":"2026-08-22T19:56:31+00:00","min":105392,"best":{"price":105392,"airlines":["Emirates","flydubai"],"stops":1,"depart":"04:10","arrive":"20:10","duration_min":605,"route":"DEL \u2192 DXB \u2192 DMK"},"offers":[{"price":105392,"airlines":["Emirates","flydubai"],"stops":1,"depart":"04:10","arrive":"20:10","duration_min":605,"route":"DEL \u2192 DXB \u2192 DMK"},{"price":105392,"airlines":["Emirates","flydubai"],"stops":1,"depart":"16:15","arrive":"07:55","duration_min":600,"route":"DEL \u2192 DXB \u2192 DMK"},{"price":105392,"airlines":["Emirates","flydubai"],"stops":1,"depart":"21:30","arrive":"20:10","duration_min":609,"route":"DEL \u2192 DXB \u2192 DMK"}]}]},"DEL-DMK|2027-01-17":{"url":"https://www.google.com/travel/flights?q=Flights%20from%20DEL%20to%20DMK%20on%202027-01-17%20one%20way","points":[{"t":"2026-08-22T19:56:31+00:00","min":105392,"best":{"price":105392,"airlines":["Emirates","flydubai"],"stops":1,"depart":"04:10","arrive":"20:10","duration_min":605,"route":"DEL \u2192 DXB \u2192 DMK"},"offers":[{"price":105392,"airlines":["Emirates","flydubai"],"stops":1,"depart":"04:10","arrive":"20:10","duration_min":605,"route":"DEL \u2192 DXB \u2192 DMK"},{"price":105392,"airlines":["Emirates","flydubai"],"stops":1,"depart":"21:30","arrive":"20:10","duration_min":609,"route":"DEL \u2192 DXB \u2192 DMK"}]}]},"DEL-DMK|2027-01-18":{"url":"https://www.google.com/travel/flights?q=Flights%20from%20DEL%20to%20DMK%20on%202027-01-18%20one%20way","points":[{"t":"2026-08-22T19:56:31+00:00","min":111692,"best":{"price":111692,"airlines":["Emirates","flydubai"],"stops":1,"depart":"04:10","arrive":"20:10","duration_min":605,"route":"DEL \u2192 DXB \u2192 DMK"},"offers":[{"price":111692,"airlines":["Emirates","flydubai"],"stops":1,"depart":"04:10","arrive":"20:10","duration_min":605,"route":"DEL \u2192 DXB \u2192 DMK"},{"price":123190,"airlines":["Emirates","flydubai"],"stops":1,"depart":"21:30","arrive":"20:10","duration_min":609,"route":"DEL \u2192 DXB \u2192 DMK"}]}]},"HKT-DEL|2027-01-23":{"url":"https://www.google.com/travel/flights?q=Flights%20from%20HKT%20to%20DEL%20on%202027-01-23%20one%20way","points":[{"t":"2026-08-22T19:56:31+00:00","min":25434,"best":{"price":25434,"airlines":["Thai Lion Air"],"stops":1,"depart":"22:05","arrive":"16:10","duration_min":335,"route":"HKT \u2192 DMK \u2192 DEL"},"offers":[{"price":25434,"airlines":["Thai Lion Air"],"stops":1,"depart":"22:05","arrive":"16:10","duration_min":335,"route":"HKT \u2192 DMK \u2192 DEL"},{"price":27059,"airlines":["Thai AirAsia","Thai AirAsia X"],"stops":1,"depart":"09:00","arrive":"19:50","duration_min":355,"route":"HKT \u2192 DMK \u2192 DEL"},{"price":29080,"airlines":["IndiGo"],"stops":0,"depart":"22:40","arrive":"02:00","duration_min":290,"route":"HKT \u2192 DEL"},{"price":29747,"airlines":["Thai AirAsia","Thai AirAsia X"],"stops":1,"depart":"13:30","arrive":"19:50","duration_min":355,"route":"HKT \u2192 DMK \u2192 DEL"},{"price":34980,"airlines":["China Southern"],"stops":1,"depart":"23:20","arrive":"20:15","duration_min":625,"route":"HKT \u2192 CAN \u2192 DEL"}]}]},"HKT-DEL|2027-01-24":{"url":"https://www.google.com/travel/flights?q=Flights%20from%20HKT%20to%20DEL%20on%202027-01-24%20one%20way","points":[{"t":"2026-08-22T19:56:31+00:00","min":25434,"best":{"price":25434,"airlines":["Thai Lion Air"],"stops":1,"depart":"08:50","arrive":"16:10","duration_min":335,"route":"HKT \u2192 DMK \u2192 DEL"},"offers":[{"price":25434,"airlines":["Thai Lion Air"],"stops":1,"depart":"08:50","arrive":"16:10","duration_min":335,"route":"HKT \u2192 DMK \u2192 DEL"},{"price":26312,"airlines":["Thai Lion Air"],"stops":1,"depart":"09:50","arrive":"16:10","duration_min":335,"route":"HKT \u2192 DMK \u2192 DEL"},{"price":29080,"airlines":["IndiGo"],"stops":0,"depart":"22:40","arrive":"02:00","duration_min":290,"route":"HKT \u2192 DEL"},{"price":29747,"airlines":["Thai AirAsia","Thai AirAsia X"],"stops":1,"depart":"13:30","arrive":"19:50","duration_min":355,"route":"HKT \u2192 DMK \u2192 DEL"}]}]},"HKT-DEL|2027-01-25":{"url":"https://www.google.com/travel/flights?q=Flights%20from%20HKT%20to%20DEL%20on%202027-01-25%20one%20way","points":[{"t":"2026-08-22T19:56:31+00:00","min":25434,"best":{"price":25434,"airlines":["Thai Lion Air"],"stops":1,"depart":"09:50","arrive":"16:10","duration_min":335,"route":"HKT \u2192 DMK \u2192 DEL"},"offers":[{"price":25434,"airlines":["Thai Lion Air"],"stops":1,"depart":"09:50","arrive":"16:10","duration_min":335,"route":"HKT \u2192 DMK \u2192 DEL"},{"price":29080,"airlines":["IndiGo"],"stops":0,"depart":"22:40","arrive":"02:00","duration_min":290,"route":"HKT \u2192 DEL"},{"price":32535,"airlines":["Thai AirAsia","Thai AirAsia X"],"stops":1,"depart":"11:45","arrive":"19:50","duration_min":355,"route":"HKT \u2192 DMK \u2192 DEL"},{"price":34008,"airlines":["Thai AirAsia","Thai AirAsia X"],"stops":1,"depart":"13:30","arrive":"19:50","duration_min":355,"route":"HKT \u2192 DMK \u2192 DEL"}]}]}}};
+const sym = {INR:"₹",USD:"$",EUR:"€",GBP:"£",THB:"฿"}[D.currency] || D.currency+" ";
+const money = v => v==null ? "—" : sym + Math.round(v).toLocaleString("en-IN");
+document.getElementById("sub").textContent =
+  "Last checked " + new Date(D.updated).toLocaleString() + " · " + Object.keys(D.series).length + " searches tracked";
+
+function spark(points){
+  if(points.length < 2) return "";
+  const W=880,H=78,vals=points.map(p=>p.min).filter(v=>v!=null);
+  if(!vals.length) return "";
+  const lo=Math.min(...vals),hi=Math.max(...vals),span=(hi-lo)||1;
+  const xy=points.map((p,i)=>[i/(points.length-1)*W, H-((p.min-lo)/span)*(H-14)-7]);
+  const line=xy.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+","+p[1].toFixed(1)).join(" ");
+  const area=line+` L${W},${H} L0,${H} Z`;
+  const last=xy[xy.length-1];
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#7aa2ff" stop-opacity=".28"/>
+    <stop offset="100%" stop-color="#7aa2ff" stop-opacity="0"/></linearGradient></defs>
+    <path d="${area}" fill="url(#g)"/>
+    <path d="${line}" fill="none" stroke="#7aa2ff" stroke-width="2" vector-effect="non-scaling-stroke"/>
+    <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="3.5" fill="#7aa2ff"/></svg>`;
+}
+
+const out=document.getElementById("out");
+const keys=Object.keys(D.series).sort();
+if(!keys.length) out.innerHTML='<div class="empty">No data yet — run the tracker once.</div>';
+for(const k of keys){
+  const s=D.series[k], pts=(s.points||[]).filter(p=>p.min!=null);
+  const [route,date]=k.split("|");
+  const cur=pts.length?pts[pts.length-1]:null;
+  const prev=pts.length>1?pts[pts.length-2]:null;
+  const allLow=pts.length?Math.min(...pts.map(p=>p.min)):null;
+  let delta='<span class="flat">first reading</span>';
+  if(cur&&prev){
+    const d=cur.min-prev.min;
+    delta = d===0 ? '<span class="flat">no change</span>'
+      : `<span class="${d<0?'down':'up'}">${d<0?"▼":"▲"} ${money(Math.abs(d))} (${(Math.abs(d)/prev.min*100).toFixed(1)}%)</span>`;
+  }
+  const b=cur&&cur.best;
+  out.insertAdjacentHTML("beforeend", `<div class="card">
+    <div class="top"><div class="route">${route.replace("-"," → ")}<span class="date">${date}</span></div>
+    <div style="text-align:right"><div class="price">${money(cur&&cur.min)}</div><div class="delta">${delta}</div></div></div>
+    ${b?`<div class="meta">${b.airlines.join(", ")} · ${b.depart}–${b.arrive} · ${b.stops} stop${b.stops===1?"":"s"} · ${b.route}</div>`:""}
+    ${spark(pts)}
+    <div class="lo">low ${money(allLow)} · ${pts.length} reading${pts.length===1?"":"s"} · <a href="${s.url}" target="_blank" rel="noopener">book →</a></div>
+  </div>`);
+}
+</script></body></html>
