@@ -1,0 +1,45 @@
+name: Track flight prices
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"      # every 3 hours (UTC). Change to "17 * * * *" for hourly.
+  workflow_dispatch:            # lets you trigger a run manually from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: flight-tracker
+  cancel-in-progress: false
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check fares
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+        run: python tracker.py
+
+      - name: Save price history
+        run: |
+          git config user.name  "flight-tracker"
+          git config user.email "actions@github.com"
+          git add history.json docs/index.html
+          git diff --staged --quiet || git commit -m "prices: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
