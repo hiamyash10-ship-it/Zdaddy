@@ -192784,80 +192784,6 @@
   "url": "https://www.google.com/travel/flights?q=Flights%20from%20HKT%20to%20DEL%20on%202027-01-25%20one%20way",
   "points": [
    {
-    "t": "2026-08-25T14:31:13+00:00",
-    "min": 25289,
-    "best": {
-     "price": 25289,
-     "airlines": [
-      "Thai Lion Air"
-     ],
-     "stops": 1,
-     "depart": "09:50",
-     "arrive": "16:10",
-     "duration_min": 335,
-     "route": "HKT \u2192 DMK \u2192 DEL"
-    },
-    "offers": [
-     {
-      "price": 25289,
-      "airlines": [
-       "Thai Lion Air"
-      ],
-      "stops": 1,
-      "depart": "09:50",
-      "arrive": "16:10",
-      "duration_min": 335,
-      "route": "HKT \u2192 DMK \u2192 DEL"
-     },
-     {
-      "price": 28915,
-      "airlines": [
-       "IndiGo"
-      ],
-      "stops": 0,
-      "depart": "11:10",
-      "arrive": "14:30",
-      "duration_min": 290,
-      "route": "HKT \u2192 DEL"
-     },
-     {
-      "price": 28915,
-      "airlines": [
-       "IndiGo"
-      ],
-      "stops": 0,
-      "depart": "22:40",
-      "arrive": "02:00",
-      "duration_min": 290,
-      "route": "HKT \u2192 DEL"
-     },
-     {
-      "price": 32298,
-      "airlines": [
-       "Thai AirAsia",
-       "Thai AirAsia X"
-      ],
-      "stops": 1,
-      "depart": "11:45",
-      "arrive": "19:50",
-      "duration_min": 355,
-      "route": "HKT \u2192 DMK \u2192 DEL"
-     },
-     {
-      "price": 33815,
-      "airlines": [
-       "Thai AirAsia",
-       "Thai AirAsia X"
-      ],
-      "stops": 1,
-      "depart": "13:30",
-      "arrive": "19:50",
-      "duration_min": 355,
-      "route": "HKT \u2192 DMK \u2192 DEL"
-     }
-    ]
-   },
-   {
     "t": "2026-08-25T17:08:08+00:00",
     "min": 25278,
     "best": {
@@ -217471,6 +217397,78 @@
       "stops": 1,
       "depart": "17:10",
       "arrive": "23:00",
+      "duration_min": 360,
+      "route": "HKT \u2192 BKK \u2192 DEL"
+     }
+    ]
+   },
+   {
+    "t": "2026-11-17T03:52:52+00:00",
+    "min": 30728,
+    "best": {
+     "price": 30728,
+     "airlines": [
+      "Vietjet"
+     ],
+     "stops": 1,
+     "depart": "14:10",
+     "arrive": "22:50",
+     "duration_min": 435,
+     "route": "HKT \u2192 SGN \u2192 DEL"
+    },
+    "offers": [
+     {
+      "price": 30728,
+      "airlines": [
+       "Vietjet"
+      ],
+      "stops": 1,
+      "depart": "14:10",
+      "arrive": "22:50",
+      "duration_min": 435,
+      "route": "HKT \u2192 SGN \u2192 DEL"
+     },
+     {
+      "price": 31330,
+      "airlines": [
+       "Air India"
+      ],
+      "stops": 0,
+      "depart": "22:30",
+      "arrive": "01:55",
+      "duration_min": 295,
+      "route": "HKT \u2192 DEL"
+     },
+     {
+      "price": 38139,
+      "airlines": [
+       "THAI"
+      ],
+      "stops": 1,
+      "depart": "09:05",
+      "arrive": "14:45",
+      "duration_min": 355,
+      "route": "HKT \u2192 BKK \u2192 DEL"
+     },
+     {
+      "price": 38139,
+      "airlines": [
+       "THAI"
+      ],
+      "stops": 1,
+      "depart": "17:10",
+      "arrive": "23:00",
+      "duration_min": 360,
+      "route": "HKT \u2192 BKK \u2192 DEL"
+     },
+     {
+      "price": 38139,
+      "airlines": [
+       "THAI"
+      ],
+      "stops": 1,
+      "depart": "20:40",
+      "arrive": "02:20",
       "duration_min": 360,
       "route": "HKT \u2192 BKK \u2192 DEL"
      }
