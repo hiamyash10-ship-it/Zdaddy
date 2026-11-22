@@ -64752,89 +64752,6 @@
   "url": "https://www.google.com/travel/flights?q=Flights%20from%20DEL%20to%20BKK%20on%202027-01-18%20one%20way",
   "points": [
    {
-    "t": "2026-08-29T12:20:37+00:00",
-    "min": 16371,
-    "best": {
-     "price": 16371,
-     "airlines": [
-      "Air India"
-     ],
-     "stops": 0,
-     "depart": "11:55",
-     "arrive": "17:55",
-     "duration_min": 270,
-     "route": "DEL \u2192 BKK"
-    },
-    "offers": [
-     {
-      "price": 16371,
-      "airlines": [
-       "Air India"
-      ],
-      "stops": 0,
-      "depart": "11:55",
-      "arrive": "17:55",
-      "duration_min": 270,
-      "route": "DEL \u2192 BKK"
-     },
-     {
-      "price": 16371,
-      "airlines": [
-       "Air India"
-      ],
-      "stops": 0,
-      "depart": "14:40",
-      "arrive": "20:35",
-      "duration_min": 265,
-      "route": "DEL \u2192 BKK"
-     },
-     {
-      "price": 17946,
-      "airlines": [
-       "Air India"
-      ],
-      "stops": 0,
-      "depart": "01:20",
-      "arrive": "07:05",
-      "duration_min": 255,
-      "route": "DEL \u2192 BKK"
-     },
-     {
-      "price": 18302,
-      "airlines": [
-       "THAI"
-      ],
-      "stops": 0,
-      "depart": "00:20",
-      "arrive": "06:05",
-      "duration_min": 255,
-      "route": "DEL \u2192 BKK"
-     },
-     {
-      "price": 18302,
-      "airlines": [
-       "THAI"
-      ],
-      "stops": 0,
-      "depart": "03:30",
-      "arrive": "09:00",
-      "duration_min": 240,
-      "route": "DEL \u2192 BKK"
-     },
-     {
-      "price": 18302,
-      "airlines": [
-       "THAI"
-      ],
-      "stops": 0,
-      "depart": "16:05",
-      "arrive": "21:35",
-      "duration_min": 240,
-      "route": "DEL \u2192 BKK"
-     }
-    ]
-   },
-   {
     "t": "2026-08-29T15:20:30+00:00",
     "min": 16371,
     "best": {
@@ -97056,6 +96973,89 @@
    },
    {
     "t": "2026-11-22T01:18:13+00:00",
+    "min": 16652,
+    "best": {
+     "price": 16652,
+     "airlines": [
+      "Air India"
+     ],
+     "stops": 0,
+     "depart": "12:20",
+     "arrive": "18:10",
+     "duration_min": 260,
+     "route": "DEL \u2192 BKK"
+    },
+    "offers": [
+     {
+      "price": 16652,
+      "airlines": [
+       "Air India"
+      ],
+      "stops": 0,
+      "depart": "12:20",
+      "arrive": "18:10",
+      "duration_min": 260,
+      "route": "DEL \u2192 BKK"
+     },
+     {
+      "price": 16652,
+      "airlines": [
+       "Air India"
+      ],
+      "stops": 0,
+      "depart": "15:20",
+      "arrive": "21:15",
+      "duration_min": 265,
+      "route": "DEL \u2192 BKK"
+     },
+     {
+      "price": 18227,
+      "airlines": [
+       "Air India"
+      ],
+      "stops": 0,
+      "depart": "00:05",
+      "arrive": "05:50",
+      "duration_min": 255,
+      "route": "DEL \u2192 BKK"
+     },
+     {
+      "price": 20928,
+      "airlines": [
+       "THAI"
+      ],
+      "stops": 0,
+      "depart": "00:20",
+      "arrive": "06:05",
+      "duration_min": 255,
+      "route": "DEL \u2192 BKK"
+     },
+     {
+      "price": 20928,
+      "airlines": [
+       "THAI"
+      ],
+      "stops": 0,
+      "depart": "11:00",
+      "arrive": "16:30",
+      "duration_min": 240,
+      "route": "DEL \u2192 BKK"
+     },
+     {
+      "price": 20928,
+      "airlines": [
+       "THAI"
+      ],
+      "stops": 0,
+      "depart": "16:05",
+      "arrive": "21:35",
+      "duration_min": 240,
+      "route": "DEL \u2192 BKK"
+     }
+    ]
+   },
+   {
+    "t": "2026-11-22T11:23:51+00:00",
     "min": 16652,
     "best": {
      "price": 16652,
